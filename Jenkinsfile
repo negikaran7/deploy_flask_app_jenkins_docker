@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'your-docker-image-name'
-        REPO_URL = 'https://github.com/your-github-username/your-repository.git'
+        DOCKER_IMAGE = 'flask_app'
+        REPO_URL = 'https://github.com/negikaran7/deploy_flask_app_jenkins_docker.git'
     }
 
     stages {
