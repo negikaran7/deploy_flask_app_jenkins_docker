@@ -5,8 +5,7 @@ pipeline {
         DOCKER_IMAGE = 'flask_app'
         REPO_URL = 'https://github.com/negikaran7/deploy_flask_app_jenkins_docker.git'
     }
-
-    stages {
+   stages {
         stage('Checkout') {
             steps {
                 // Checkout the source code from GitHub
@@ -16,18 +15,22 @@ pipeline {
 
         stage('Build') {
             steps {
-                script {
-                    // Build Docker image
-                    docker.build("${DOCKER_IMAGE}")
+                dir('flask app') {
+                    script {
+                        // Build Docker image
+                        docker.build("${DOCKER_IMAGE}")
+                    }
                 }
             }
         }
 
         stage('Create Container') {
             steps {
-                script {
-                    // Create and run Docker container
-                    sh 'docker run -d -p 5000:5000 --name flask_app ${DOCKER_IMAGE}'
+                dir('flask app') {
+                    script {
+                        // Create and run Docker container
+                        sh 'docker run -d -p 8181:8181 --name flask_app ${DOCKER_IMAGE}'
+                    }
                 }
             }
         }
