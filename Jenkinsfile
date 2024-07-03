@@ -29,7 +29,7 @@ pipeline {
                 dir('flask app') {
                     script {
                         // Create and run Docker container
-                        sh 'docker run -d -p 8181:8181 --name flask_app ${DOCKER_IMAGE}'
+                        sh 'docker run -d -p 5000:5000 --name flask_app ${DOCKER_IMAGE}'
                     }
                 }
             }
