@@ -46,13 +46,13 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            script {
-                // Cleanup Docker images and containers
-                sh 'docker rm -f flask_app || true'
-                sh 'docker rmi $(docker images -q) || true'
-            }
-        }
-    }
+    // post {
+    //     always {
+    //         script {
+    //             // Cleanup Docker images and containers
+    //             sh 'docker rm -f flask_app || true'
+    //             sh 'docker rmi $(docker images -q) || true'
+    //         }
+    //     }
+    // }
 }
